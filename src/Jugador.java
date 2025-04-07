@@ -132,12 +132,27 @@ public class Jugador {
                 inicio = inicio + Math.max(1, longitud);
             }
         }
+                int[] contadores = new int[NombreCarta.values().length];
+        for (Carta c : cartas) {
+            contadores[c.getNombre().ordinal()]++;
+        }
+
+        for (int i = 0; i < contadores.length; i++) {
+            if (contadores[i] > 1) {
+                for (Carta c : cartas) {
+                    if (c.getNombre().ordinal() == i) {
+                        int fila = c.getPinta().ordinal();
+                        int col = c.getNombre().ordinal();
+                        usadas[fila][col] = true;
+                    }
+                }
+            }
+        }
 
         int puntaje = 0;
         for (Carta carta : cartas) {
             int fila = carta.getPinta().ordinal();
             int col = carta.getNombre().ordinal();
-
             if (!usadas[fila][col]) {
                 // Valor de la carta
                 switch (carta.getNombre()) {
@@ -156,11 +171,3 @@ public class Jugador {
         return puntaje;
     }
 }
-
-
-
-
-
-
-
-
