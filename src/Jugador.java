@@ -79,7 +79,7 @@ public class Jugador {
                     longitud++;
                 }
 
-                if (longitud >= 3) {
+                if (longitud >= 2) {
                     if (mensaje.equals("No se encontraron escaleras")) {
                         mensaje = "Se encontraron escaleras:\n";
                     }
@@ -123,7 +123,7 @@ public class Jugador {
                     longitud++;
                 }
 
-                if (longitud >= 3) {
+                if (longitud >= 2) {
                     for (int i = inicio; i < inicio + longitud; i++) {
                         usadas[pinta][i] = true;
                     }
